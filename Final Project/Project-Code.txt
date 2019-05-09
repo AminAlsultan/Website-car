@@ -1,0 +1,475 @@
+<?php
+include "db.php";
+
+?>
+
+<html>
+
+
+
+
+
+   <head>
+   
+
+      <meta charset="UTF-8" />
+
+      <title>Amin Car sellers</title>
+     <link rel="stylesheet" type="text/css" href="style.css" >
+
+     
+      
+
+
+   </head>
+   <body>
+   <div id="Container">
+		   <header>
+			   <nav>
+					   <ul>
+					   <!-- Creating working hyperlinks-->
+					   <li>
+					   <div class="logo">
+					  Amin Car Sellers.
+					  </div>
+					   </li>
+						<li>
+						<a href="index.php">
+						Home
+						</a>
+						</li>
+						
+				   </ul>
+			   </nav>
+		   </header>
+		   
+		   <section>
+		   <div class="main">
+		   
+		   <div class="formselect">
+		   
+ <form action="search.php" method="POST" style="border:1px solid #ccc">
+  <div class="form-container">
+    <h1>Search Car Now</h1>
+    
+    <hr>
+
+    <label for="make"><b>Make</b></label>
+			 <?php
+$sql1 = "SELECT DISTINCT make FROM car_table";
+$result = $conn->query($sql1);
+
+if ($result->num_rows > 0) {
+    // output data of each row
+	echo '<select  name="make" id="make">';
+    while($row = $result->fetch_assoc()) {
+		echo " <option value=".$row["make"].">".$row["make"]."</option>";
+	}
+	echo "</select> </br>";
+	
+	
+?>
+	
+	<label for="model"><b>Model<b></label>
+	 <?php
+$sql2 = "SELECT DISTINCT model FROM car_table";
+$result = $conn->query($sql2);
+echo '<select  name="model" id="model">';
+    while($row = $result->fetch_assoc()) {
+		
+		echo " <option value=".$row["model"].">".$row["model"]."</option>";
+	}
+	echo "</select> </br>";
+	?>
+	
+	<label for="year"><b>Year<b></label>
+	 <?php
+$sql = "SELECT DISTINCT year FROM car_table";
+$result = $conn->query($sql);
+	echo '<select  name="year" id="year">';
+    while($row = $result->fetch_assoc()) {
+		echo " <option value=".$row["year"].">".$row["year"]."</option>";
+	}
+	echo "</select> </br>";
+	
+	}
+	 else {
+    echo "0 results";
+}
+	?>	
+	  
+	<!--<label for="mileage"><b>Mileage<b></label>
+	<select name="mileage">
+		<option value="volvo">50k</option>
+	  <option value="saab">100k</option>
+	  <option value="mercedes"><150k</option>
+	  <option value="audi"><200k</option>
+	</select>-->
+	
+
+    <div class="clearfix">
+      
+      <button type="submit" value="search" class="signupbtn">Search Car Now</button>
+    </div>
+  </div>
+</form>
+
+
+		   </div>
+		   
+		  
+		   
+		   
+		   </div>
+		   
+		  
+		   
+		   <div class="list">		 
+		 <?php
+$sql = "SELECT id, image, name, price FROM car_table";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+		echo " <div class='car'>";
+		
+        echo $row["id"].": ".$row["name"]. "<hr><img src='". $row["image"]. "'/> </br> Price: $" . $row["price"]. " </br>";
+		echo '<button name="addcart">BUY</button>
+		 <button name="addcart"><a href="details.html">DETAILS</a></button>';
+		echo '</div>';
+    }
+} else {
+    echo "0 results";
+}
+$conn->close();
+		 ?>
+		 
+	
+		
+		   
+		  
+		   <p>
+		   
+		   
+		   <ol>
+		   <li>Amin Car sellers
+		   <p>
+		   At "Amin sellers" we have a large number of quality used cars, trucks and vans with more arriving everyday.
+Below average prices, to suit your budget.
+Every car has multiple pictures so you can really see what you are buying.
+We will respond to any questions you may have quickly.
+We are very experienced in shipping internationally. Our shipping partners are ready to send your vehicle to you immediately.
+There is a professional mechanic on our staff to check vehicles; we also offer a tuning service.
+Our professional commercial vehicle branch provide our trucks and vans.
+We pride ourselves in providing a reliable service, we have had no problems with our transactions throughout the history of our company.
+		   <p>
+		   </li>
+			
+			
+
+		   </ol>
+		   
+		   
+		   </p>
+		    
+		   
+		   </div>
+		      <div class="list">
+		   <h1>Contacts</h1>
+		   <p>
+		   
+		   
+			Phone Number: +1(802)777-1408<br>
+			Address: 1436 Honysukle SW</br>
+			Tumwater,WA 98512</br>
+			Email: ameer.alshoog@hotmail.com</br>
+			
+		   
+		   
+		   </p>
+		    
+		   </div>
+		   
+		   
+		   
+		  
+		   </section>
+	
+	</div>
+   
+   </body>
+   ///////
+
+<?php
+include "db.php";
+
+?>
+
+<html>
+
+
+
+
+
+   <head>
+   
+
+      <meta charset="UTF-8" />
+
+      <title>Amin Car sellers</title>
+     <link rel="stylesheet" type="text/css" href="style.css" >
+
+     
+      
+
+
+   </head>
+   <body>
+   <div id="Container">
+		   <header>
+			   <nav>
+					   <ul>
+					   <!-- Creating working hyperlinks-->
+					   <li>
+					   <div class="logo">
+					  Amin Car Sellers.
+					  </div>
+					   </li>
+						<li>
+						<a href="index.php">
+						Home
+						</a>
+						</li>
+						
+				   </ul>
+			   </nav>
+		   </header>
+		   
+		   <section>
+		   <div class="main">
+		   
+		   
+		   
+		   
+		   
+		   
+		   </div>
+		   
+		  
+		   
+		   <div class="list">	
+
+<h1> Search Results </h1>		   
+		<?php
+$query = $_POST['make']; 
+$model = $_POST['model']; 
+ $query = htmlspecialchars($query); 
+        // changes characters used in html to their equivalents, for example: < to &gt;
+         
+       // $query = mysqli_real_escape_string($query);
+        // makes sure nobody uses SQL injection
+    // gets value sent over search form
+$sql =("SELECT * FROM car_table WHERE (`make` LIKE '%".$query."%') AND (`model` LIKE '%".$model."%')");
+
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+		echo " <div class='car'>";
+		
+        echo "". $row["id"].": ".$row["name"]. "<hr><img src='". $row["image"]. "'/> </br> Price: $" . $row["price"]. " </br>";
+		echo '<button name="addcart">BUY</button>
+		 <button name="addcart"><a href="details.html">DETAILS</a></button>';
+		echo '</div>';
+    }
+} else {
+    echo "0 results";
+}
+$conn->close();
+
+
+?>
+		 
+	
+		
+		   
+		  
+		   <p>
+		   
+		   
+		   <ol>
+		   
+
+		   </ol>
+		   
+		   
+		   </p>
+		    
+		   
+		   </div>
+		      <div class="list">
+		   <h1>Contacts</h1>
+		   <p>
+		   
+		   
+			Phone Number: +966 50 117 7920<br>
+			Address: 1st Street Fuda Chofu-City</br>
+			Email: ameer.alshoog@hotmail.com</br>
+			
+		   
+		   
+		   </p>
+		    
+		   </div>
+		   
+		   
+		   
+		  
+		   </section>
+	
+	</div>
+   
+   </body>
+   ////////////
+
+<html>
+
+   <head>
+   
+
+      <meta charset="UTF-8" />
+
+      <title>Amin Car sellers</title>
+     
+     
+      <link href="style.css"  rel="stylesheet" />
+
+
+   </head>
+   <body>
+   <div id="Container">
+		   <header>
+			   <nav>
+					   <ul>
+					   <!-- Creating working hyperlinks-->
+						<li>
+						<a href="index.php">
+						Home
+						</a>
+						</li>
+						
+				   </ul>
+			   </nav>
+		   </header>
+		   
+		   <section>
+		   <div class="main">
+		   <p>
+		   <img src="prado.jpg"/>
+		  
+		   </p>
+		   <p>
+		  
+		   <strong> 2014 TOYOTA LAND CRUISER PRADO</strong></br>
+		   <strong>CBA-TRJ150W BG148650</strong>
+		  </br>Original Vehicle Price:	$25,259
+		   <br>
+Current Vehicle Price:	$23,497
+ <br>
+
+You Save:	$1,762 (6%)
+		   </p>
+		 
+<p><h2>SPECS</h2>
+		   <table>
+		   
+				   <tr>
+				   <td>
+				   Ref No
+				   </td>
+				   <td>
+				  	BG148650
+				   </td>
+				   </tr>
+				   <tr>
+				   <td>
+				   Chassis 
+				   </td>
+				   <td>
+				  TRJ150-0052287
+				   </td>
+				   </tr>
+				   <tr>
+				   <td>
+				   Engine Size.
+
+				   </td>
+				   <td>
+				  2690cc
+				   </td>
+				   </tr>
+				   <tr>
+				   <td>
+				   Mileage
+
+				   </td>
+				   <td>
+				68,853
+					</td>
+				   </tr>
+				 
+				   </table>
+
+		   </p>
+		   
+		   
+		   
+		   </div>
+		   
+		   <div class="list">
+		  <h1>Contacts</h1>
+		   <p>
+		   
+		   
+			Phone Number: +1(802)777-1408<br>
+			Address: 1633 Honeysukle sw </br>
+			Tumwater, WA 98512</br>
+			Email: ameer.alshoog@hotmail.com</br>
+			
+		   
+		   
+		   </p>
+		    
+		    
+		   </div>
+		   
+		   
+		   
+		  
+		   </section>
+	
+	</div>
+   
+   </body>
+////////////////
+
+<?php
+
+$servername = "localhost";
+$username = "root";
+$password = '';
+$dbname = "cars";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+
+
+?>
+   
+   
